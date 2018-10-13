@@ -1,0 +1,9 @@
+# Make a secrets folder and include examples of what should be in there
+/secrets/flood-alert-app/*
+
+# Wildcard ignore any '.terraform' directory
+/**/*.terraform/*
+terraform/projects/*
+
+terraform/plans
+
