@@ -62,7 +62,7 @@ type openWeather struct {
 var a = new(apiInfo)
 
 func init() {
-	err := getSecrets()
+	err := getSecrets("./secrets/api.yaml")
 	if err != nil {
 		fmt.Println(err)
 		os.Exit(0)
@@ -152,8 +152,8 @@ func (info *openWeather) processData() {
 	}
 }
 
-func getWeatherUrl() error {
-	file, err := ioutil.ReadFile("./secrets/api.yaml")
+func getWeatherUrl(yamlPath string) error {
+	file, err := ioutil.ReadFile(yamlPath)
 	if err != nil {
 		return errors.Wrap(err, "Failed to open file")
 	}

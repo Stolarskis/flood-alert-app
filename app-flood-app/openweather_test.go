@@ -6,7 +6,7 @@ import (
 )
 
 func TestWeatherUrl(t *testing.T) {
-	err := getWeatherUrl()
+	err := getWeatherUrl("./test.yaml")
 	if err != nil {
 		t.Error("Failed get get secrets")
 	}

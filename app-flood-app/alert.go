@@ -18,8 +18,10 @@ type SValues struct {
 		EmailPrivateKey string `yaml:"EmailPrivateKey"`
 		EmailPublicKey  string `yaml:"EmailPublicKey"`
 		EmailDomain     string `yaml:"EmailDomain"`
+		ClientPhone	string `yaml:"ClientPhone"`
+		ServerPhone	string `yaml:"ServerPhone"`
 	} `yaml:"apiKeys"`
-}
+ }
 
 var callMute = false
 var smsMute = false
@@ -28,7 +30,7 @@ var emailMute = false
 var s = new(SValues)
 
 func init() {
-	err := getSecrets()
+	err := getSecrets("./secrets/api.yaml")
 	if err != nil {
 		fmt.Println(err)
 		os.Exit(0)
@@ -60,9 +62,9 @@ func alert(severity int, message string) {
 func sendSMSAlert(alert string) {
 	twilio := gotwilio.NewTwilioClient(s.ApiKeys.SMSAccount, s.ApiKeys.SMSToken)
 
-	from := "+18647777941"
+	from := s.ApiKeys.ServerPhone
 	//Send me a text message
-	to := "+18643493157"
+	to :=  s.ApiKeys.ClientPhone
 	message := alert
 	twilio.SendSMS(from, to, message, "", "")
 }
@@ -88,8 +90,8 @@ func sendCallAlert(message string) {
 	fmt.Println("Calling is not yet implemented. Message: ", message)
 }
 
-func getSecrets() error {
-	file, err := ioutil.ReadFile("./secrets/api.yaml")
+func getSecrets(yamlPath string) error {
+	file, err := ioutil.ReadFile(yamlPath)
 	if err != nil {
 		return errors.Wrap(err, "Failed to open file")
 	}
