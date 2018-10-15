@@ -1,5 +1,5 @@
 # Flood-Alert-App
-More Detailed info + instructionms coming soon
+More Detailed info + instructions coming soon
 
 ## App-Flood-App
 GRPC Server - Waits for calls from `App-Flood-Ctl` 

@@ -2,40 +2,14 @@ package main
 
 import (
 	"fmt"
-	"io/ioutil"
-	"os"
 
-	"github.com/pkg/errors"
 	"github.com/sfreiberg/gotwilio"
 	"gopkg.in/mailgun/mailgun-go.v1"
-	"gopkg.in/yaml.v2"
 )
-
-type SValues struct {
-	ApiKeys struct {
-		SMSAccount      string `yaml:"SMSAccount"`
-		SMSToken        string `yaml:"SMSToken"`
-		EmailPrivateKey string `yaml:"EmailPrivateKey"`
-		EmailPublicKey  string `yaml:"EmailPublicKey"`
-		EmailDomain     string `yaml:"EmailDomain"`
-		ClientPhone	string `yaml:"ClientPhone"`
-		ServerPhone	string `yaml:"ServerPhone"`
-	} `yaml:"apiKeys"`
- }
 
 var callMute = false
 var smsMute = false
 var emailMute = false
-
-var s = new(SValues)
-
-func init() {
-	err := getSecrets("./secrets/api.yaml")
-	if err != nil {
-		fmt.Println(err)
-		os.Exit(0)
-	}
-}
 
 //severity codes
 //3. Notify - Email/Slack message
@@ -60,18 +34,18 @@ func alert(severity int, message string) {
 }
 
 func sendSMSAlert(alert string) {
-	twilio := gotwilio.NewTwilioClient(s.ApiKeys.SMSAccount, s.ApiKeys.SMSToken)
+	twilio := gotwilio.NewTwilioClient(secrets.ApiKeys.SMSAccount, secrets.ApiKeys.SMSToken)
 
-	from := s.ApiKeys.ServerPhone
+	from := secrets.ApiKeys.ServerPhone
 	//Send me a text message
-	to :=  s.ApiKeys.ClientPhone
+	to := secrets.ApiKeys.ClientPhone
 	message := alert
 	twilio.SendSMS(from, to, message, "", "")
 }
 
 func sendEmailAlert(message string) {
 	//mg := mailgun.NewMailgun(domain, privateAPIKey)
-	mg := mailgun.NewMailgun(s.ApiKeys.EmailDomain, s.ApiKeys.EmailPrivateKey, s.ApiKeys.EmailPublicKey)
+	mg := mailgun.NewMailgun(secrets.ApiKeys.EmailDomain, secrets.ApiKeys.EmailPrivateKey, secrets.ApiKeys.EmailPublicKey)
 
 	from := "flood-Alert@alerts.com"
 	subject := "Weather Alert"
@@ -88,17 +62,4 @@ func sendEmailAlert(message string) {
 
 func sendCallAlert(message string) {
 	fmt.Println("Calling is not yet implemented. Message: ", message)
-}
-
-func getSecrets(yamlPath string) error {
-	file, err := ioutil.ReadFile(yamlPath)
-	if err != nil {
-		return errors.Wrap(err, "Failed to open file")
-	}
-	err = yaml.Unmarshal(file, s)
-	if err != nil {
-		return errors.Wrap(err, "Failed to unmarshal file")
-	}
-
-	return nil
 }

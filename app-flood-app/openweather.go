@@ -3,18 +3,9 @@ package main
 import (
 	"encoding/json"
 	"fmt"
-	"io/ioutil"
 	"log"
 	"net/http"
-	"os"
-
-	"github.com/pkg/errors"
-	yaml "gopkg.in/yaml.v2"
 )
-
-type apiInfo struct {
-	URL string `yaml:"URL"`
-}
 
 type openWeather struct {
 	Coord struct {
@@ -59,30 +50,19 @@ type openWeather struct {
 	Cod  int    `json:"cod"`
 }
 
-var a = new(apiInfo)
-
-func init() {
-	err := getSecrets("./secrets/api.yaml")
-	if err != nil {
-		fmt.Println(err)
-		os.Exit(0)
-	}
-}
-
 func getInfo() (*openWeather, error) {
-	info := &openWeather{}
-	url := a.URL
-	req, err := http.NewRequest("GET", url, nil)
+	info := new(openWeather)
+	req, err := http.NewRequest("GET", secrets.URL, nil)
 	if err != nil {
 		log.Fatal("Unable to create request", err)
 		return nil, err
 	}
 
-	client := &http.Client{}
+	client := new(http.Client)
 
 	resp, err := client.Do(req)
 	if err != nil {
-		log.Fatal("Unable to get reponse", err)
+		log.Fatal("Unable to get response from API", err)
 		return nil, err
 	}
 
@@ -150,17 +130,4 @@ func (info *openWeather) processData() {
 		//Emergency
 		alert(3, "Emergency: Rain in the past 3 hours is above 3 inches")
 	}
-}
-
-func getWeatherUrl(yamlPath string) error {
-	file, err := ioutil.ReadFile(yamlPath)
-	if err != nil {
-		return errors.Wrap(err, "Failed to open file")
-	}
-	err = yaml.Unmarshal(file, a)
-	if err != nil {
-		return errors.Wrap(err, "Failed to unmarshal file")
-	}
-
-	return nil
 }

@@ -6,20 +6,32 @@ import (
 )
 
 func TestGetSecretsAlert(t *testing.T) {
-	err := getSecrets("./test.yaml")
+	info, err := getSecrets("./test.yaml")
 	if err != nil {
 		t.Error("Failed get get secrets")
 	}
 
-	fmt.Println(s)
+	if info.ApiKeys.SMSToken != "SMSToken" {
+		fmt.Println("Incorrect SMSToken Values")
+		t.Fail()
+	}
+
 }
 
 func TestGetSecretsAlertPhones(t *testing.T) {
-	err := getSecrets("./test.yaml")
+	info, err := getSecrets("./test.yaml")
 	if err != nil {
 		t.Error("Failed get get secrets")
 	}
 
-	fmt.Println(s.ApiKeys.ClientPhone)
-	fmt.Println(s.ApiKeys.ServerPhone)
+	//fmt.Println(info.ApiKeys.ClientPhone)
+	//fmt.Println(info.ApiKeys.ServerPhone)
+	if info.ApiKeys.ClientPhone != "ClientPhone" {
+		fmt.Println("Incorrect ClientPhone Value")
+		t.Fail()
+	}
+	if info.ApiKeys.ServerPhone != "ServerPhone" {
+		fmt.Println("Incorrect ServerPhone Value")
+		t.Fail()
+	}
 }
