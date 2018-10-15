@@ -2,7 +2,6 @@
 SHELL := /bin/bash
 BASE_DIR := $(shell pwd)
 CONTAINER_REG := gcr.io/flood-alert-app/app-flood-ctl
-TEST_ENV := whatsup
 
 
 push_latest:
