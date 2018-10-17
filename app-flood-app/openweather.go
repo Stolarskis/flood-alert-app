@@ -21,7 +21,7 @@ type openWeather struct {
 	Base string `json:"base"`
 	Main struct {
 		Temp     float64 `json:"temp"`
-		Pressure int     `json:"pressure"`
+		Pressure float64 `json:"pressure"`
 		Humidity int     `json:"humidity"`
 		TempMin  float64 `json:"temp_min"`
 		TempMax  float64 `json:"temp_max"`
@@ -45,9 +45,9 @@ type openWeather struct {
 		Sunrise int     `json:"sunrise"`
 		Sunset  int     `json:"sunset"`
 	} `json:"sys"`
-	ID   int    `json:"id"`
-	Name string `json:"name"`
-	Cod  int    `json:"cod"`
+	ID   int     `json:"id"`
+	Name string  `json:"name"`
+	Cod  float64 `json:"cod"`
 }
 
 func getInfo() (*openWeather, error) {
