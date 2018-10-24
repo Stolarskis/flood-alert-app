@@ -1,0 +1,11 @@
+
+apiKeys:
+    SMSAccount: SMSAccount
+    SMSToken: SMSToken
+    EmailPrivateKey:  EmailPrivateKey
+    EmailPublicKey:  EmailPublicKey
+    EmailDomain:  EmailDomain
+    ClientPhone: ClientPhone
+    ServerPhone: ServerPhone
+
+URL:  URL

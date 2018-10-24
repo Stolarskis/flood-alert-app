@@ -1,0 +1,32 @@
+# Default values for flood-alert-app.
+# Access the values in your templates with this syntax: {{ .Values.key.subkey }}
+
+floodAlert:
+    name: flood-alert-app
+    replicaCount: 1
+    labels:
+        app: flood-alert-app
+    externalPort: 3000
+    internalPort: 3000 
+    service:
+        type: LoadBalancer
+        #loadBalancerIP: 
+        clusterIP: 10.7.240.2
+    image:
+        repository: gcr.io/flood-alert-app/flood-alert-app
+        version: latest
+        pullPolicy: Always
+
+testVersion:
+    image:
+        version: latest
+
+floodAlertCron:
+  name: app-flood-ctl
+  labels: flood-alert-app
+  schedule: "*/30 * * * *"
+  image:
+    repository: gcr.io/flood-alert-app/app-flood-ctl
+    version: latest
+    imagePullPolicy: Always
+  restartPolicy: Never

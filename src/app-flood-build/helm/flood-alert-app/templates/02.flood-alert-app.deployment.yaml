@@ -1,0 +1,23 @@
+---
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: "{{ .Values.floodAlert.name }}"
+  labels:
+    app: "{{ .Values.floodAlert.labels.app }}"
+spec:
+  selector:
+    matchLabels:
+      app: "{{ .Values.floodAlert.labels.app }}"
+  template:
+    metadata:
+      labels:
+        app: "{{ .Values.floodAlert.labels.app }}"
+    spec:
+      containers:
+      - image: "{{ .Values.floodAlert.image.repository }}:{{ .Values.floodAlertCron.image.version  }}"
+        name: "{{ .Values.floodAlert.name }}"
+        imagePullPolicy: "{{ .Values.floodAlert.image.pullPolicy }}"
+        ports:
+        - name: grpclb 
+          containerPort: {{ .Values.floodAlert.internalPort }}

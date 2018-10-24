@@ -1,0 +1,20 @@
+---
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: "{{ .Values.floodAlertCron.name }}"
+spec:
+  schedule: "{{ .Values.floodAlertCron.schedule }}"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+          - image: "{{ .Values.floodAlertCron.image.repository }}:{{ .Values.floodAlertCron.image.version }}"
+            imagePullPolicy: {{ .Values.floodAlertCron.imagePullPolicy}}
+            name: "{{ .Values.floodAlertCron.name }}"
+            command: ["app-flood-ctl", "check-alerts"]
+            #args: [ "test-alerts"]
+            # "sh -c" opens a session so its more normal to
+            # give it several commands after or just call "app-flood-ctl" alone 
+          restartPolicy: "{{ .Values.floodAlertCron.restartPolicy }}"
