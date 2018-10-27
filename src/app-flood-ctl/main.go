@@ -7,10 +7,9 @@ import (
 	"os"
 	"strconv"
 
-	"github.com/Stolarskis/flood-alert-app/app-flood-api"
+	"github.com/Stolarskis/flood-alert-app/src/app-flood-api"
 	"github.com/pkg/errors"
 	"github.com/urfave/cli"
-	"google.golang.org/grpc"
 )
 
 func main() {
@@ -62,19 +61,10 @@ func main() {
 	}
 }
 
-func createClient() (pb.FloodAlertAppServiceClient, error) {
-	ip := getIPEnv()
-	conn, err := grpc.Dial(ip+":3000", grpc.WithInsecure())
-	if err != nil {
-		return nil, errors.Wrap(err, "Failed to create grpc client")
-	}
-	return pb.NewFloodAlertAppServiceClient(conn), nil
-}
-
 func checkInfo() error {
 	fmt.Println("Checking Info")
 	ctx := context.Background()
-	client, err := createClient()
+	client, err := pb.CreateClient()
 	if err != nil {
 		return err
 	}
@@ -91,7 +81,7 @@ func checkInfo() error {
 
 // Sends
 func testAlerts() error {
-	client, err := createClient()
+	client, err := pb.CreateClient()
 	if err != nil {
 		return err
 	}
@@ -106,7 +96,7 @@ func testAlerts() error {
 }
 
 func muteAlert(c *cli.Context) error {
-	client, err := createClient()
+	client, err := pb.CreateClient()
 	if err != nil {
 		return err
 	}
@@ -127,12 +117,4 @@ func muteAlert(c *cli.Context) error {
 	}
 	fmt.Println(muteAlertResponse)
 	return nil
-}
-
-func getIPEnv() string {
-	ip := os.Getenv("KUBERNETES_IP")
-	if ip == "" {
-		return "localhost"
-	}
-	return ip
 }

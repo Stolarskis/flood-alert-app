@@ -4,8 +4,8 @@
 [[projects]]
   branch = "master"
   name = "github.com/Stolarskis/flood-alert-app"
-  packages = ["app-flood-api"]
-  revision = "4ab5acd770c4ffbfc5b1a505f8c8be5183bb1290"
+  packages = ["src/app-flood-api"]
+  revision = "4171e940ce7d7b921d2f30a9eda0bbddd6644487"
 
 [[projects]]
   name = "github.com/dgrijalva/jwt-go"
@@ -82,6 +82,6 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "02220d50de0299819a7ef5aceed552cc1abc1f9308ae1d5986b7e13d4b05d268"
+  inputs-digest = "ca78f695b85e5f494a61fc48ab7ca7dcbc88617c9c59f80763607299793629b5"
   solver-name = "gps-cdcl"
   solver-version = 1

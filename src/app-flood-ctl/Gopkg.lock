@@ -4,8 +4,8 @@
 [[projects]]
   branch = "master"
   name = "github.com/Stolarskis/flood-alert-app"
-  packages = ["app-flood-api"]
-  revision = "4ab5acd770c4ffbfc5b1a505f8c8be5183bb1290"
+  packages = ["src/app-flood-api"]
+  revision = "4171e940ce7d7b921d2f30a9eda0bbddd6644487"
 
 [[projects]]
   name = "github.com/golang/protobuf"
@@ -58,6 +58,6 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "750f50593d98760676836ec1a09fd341d9c8a28e306b362034469226c5c6bb3e"
+  inputs-digest = "5d98136b9f919bd57a122306a9f252e029dea1cf57d591819554e2fa61f03289"
   solver-name = "gps-cdcl"
   solver-version = 1

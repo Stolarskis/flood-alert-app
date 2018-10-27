@@ -9,6 +9,6 @@ import (
 func main() {
 	fmt.Println("Starting Server")
 	server := &server.Server{}
-	server.Initialize(config)
+	server.Init()
 	server.Run(":3000")
 }

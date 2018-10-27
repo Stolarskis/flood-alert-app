@@ -8,6 +8,12 @@
   version = "v1.2.0"
 
 [[projects]]
+  name = "github.com/pkg/errors"
+  packages = ["."]
+  revision = "645ef00459ed84a119197bfb8d8205042c6df63d"
+  version = "v0.8.0"
+
+[[projects]]
   branch = "master"
   name = "golang.org/x/net"
   packages = ["context","http/httpguts","http2","http2/hpack","idna","internal/timeseries","trace"]
@@ -40,6 +46,6 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "d0ad88372688eba5f3c5e90c5070af3e3eb9bd0ccd2cede13e5024ca0d0820a6"
+  inputs-digest = "fd80b3ea2bc7fbbe29a225fcfeb82424a1d2e07423fee205ba85e09e59ab7f4a"
   solver-name = "gps-cdcl"
   solver-version = 1
