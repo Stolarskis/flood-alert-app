@@ -5,6 +5,12 @@ import (
 	"net/http"
 )
 
+type user struct {
+	name  string `json:"name"`
+	email string `json:"email"`
+	phone string `json:"phone"`
+}
+
 // respondJSON makes the response with payload as json format
 func respondJSON(w http.ResponseWriter, status int, payload interface{}) {
 	response, err := json.Marshal(payload)
