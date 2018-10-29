@@ -13,6 +13,7 @@ func CheckAlerts(w http.ResponseWriter, r *http.Request) error {
 	ctx := context.Background()
 	clt, err := pb.CreateClient()
 	if err != nil {
+		respondError(w, "Failed to create Client in app-server")
 		return errors.Wrap(err, "Failed to create Client in app-server")
 	}
 	req := &pb.CheckAlertsRequest{
@@ -20,6 +21,7 @@ func CheckAlerts(w http.ResponseWriter, r *http.Request) error {
 	}
 	resp, err := clt.CheckAlerts(ctx, req)
 	if err != nil {
+		respondError(w, "Failed to check alerts")
 		return errors.Wrap(err, "Failed to check alerts")
 	}
 	respondJSON(w, http.StatusOK, resp.Output)
