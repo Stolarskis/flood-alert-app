@@ -7,7 +7,6 @@ import (
 	"net"
 
 	pb "github.com/Stolarskis/flood-alert-app/src/app-flood-api"
-
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/reflection"
 )
@@ -51,21 +50,21 @@ func (s *server) MuteAlerts(ctx context.Context, r *pb.MuteAlertRequest) (*pb.Mu
 	fmt.Println("Mute Alerts called")
 	var alert string
 	if r.MuteAlertPriority == 1 {
-		callMute = switchBool(callMute)
+		callMute = !callMute
 		if callMute {
 			alert = "Priority 1 alerts muted"
 		}
 		alert = "Priority 1 alerts unmuted"
 	} else if r.MuteAlertPriority == 2 {
 		alert = "Priority 2 alerts muted"
-		smsMute = switchBool(callMute)
+		smsMute = !callMute
 		if smsMute {
 			alert = "Priority 2 alerts muted"
 		}
 		alert = "Priority 2 alerts unmuted"
 	} else if r.MuteAlertPriority == 3 {
 		alert = "Priority 3 alerts muted"
-		emailMute = switchBool(emailMute)
+		emailMute = !emailMute
 		if emailMute {
 			alert = "Priority 3 alerts muted"
 		}
