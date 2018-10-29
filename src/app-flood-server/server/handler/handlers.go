@@ -39,10 +39,10 @@ func Home(w http.ResponseWriter, r *http.Request) {
 func AddUser(w http.ResponseWriter, r *http.Request) {
 	user := new(user)
 	decoder := json.NewDecoder(r.Body)
-	err := decoder.Decode(user)
+	err := decoder.Decode(&user)
 	if err != nil {
 		fmt.Println("failed to decode", err)
 	}
-	fmt.Println(user)
+	fmt.Println("printing user", user)
 
 }
