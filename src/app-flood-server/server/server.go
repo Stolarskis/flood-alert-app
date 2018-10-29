@@ -1,6 +1,7 @@
 package server
 
 import (
+	"fmt"
 	"log"
 	"net/http"
 
@@ -28,7 +29,10 @@ func (s *Server) Get(path string, f func(w http.ResponseWriter, r *http.Request)
 
 //Get request handlers
 func (s *Server) getAlerts(w http.ResponseWriter, r *http.Request) {
-	handler.CheckAlerts(w, r)
+	err := handler.CheckAlerts(w, r)
+	if err != nil {
+		fmt.Println(err)
+	}
 }
 
 func (s *Server) home(w http.ResponseWriter, r *http.Request) {
