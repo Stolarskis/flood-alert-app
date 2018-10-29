@@ -5,7 +5,6 @@ import (
 	"net/http"
 
 	handler "github.com/Stolarskis/flood-alert-app/src/app-flood-server/server/handler"
-
 	"github.com/gorilla/mux"
 )
 
