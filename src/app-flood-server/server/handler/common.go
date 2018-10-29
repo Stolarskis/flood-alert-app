@@ -6,9 +6,9 @@ import (
 )
 
 type user struct {
-	name  string `json:"name"`
-	email string `json:"email"`
-	phone string `json:"phone"`
+	Name  string `json:"name"`
+	Email string `json:"email"`
+	Phone string `json:"phone"`
 }
 
 // respondJSON makes the response with payload as json format
