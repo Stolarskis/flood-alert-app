@@ -11,7 +11,7 @@ type Entity struct {
 	Value string
 }
 
-func addUserData() {
+func (u *user) addUserData() {
 	ctx := context.Background()
 
 	// Create a datastore client. In a typical application, you would create
