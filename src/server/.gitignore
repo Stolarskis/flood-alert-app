@@ -1,3 +1,4 @@
 vendor/
 .vscode
-app-flood-server
+server
+server/server

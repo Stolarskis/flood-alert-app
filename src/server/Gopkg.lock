@@ -10,8 +10,8 @@
 [[projects]]
   branch = "master"
   name = "github.com/Stolarskis/flood-alert-app"
-  packages = ["src/app-flood-api","src/app-flood-server/server/handler"]
-  revision = "f478fe3d746c3c12bf469fe1505f54e087052837"
+  packages = ["src/app-flood-api"]
+  revision = "6191a98e3ad2c1d661def24dd4dab95377baad4e"
 
 [[projects]]
   name = "github.com/golang/protobuf"
@@ -65,7 +65,7 @@
   branch = "master"
   name = "golang.org/x/sys"
   packages = ["unix"]
-  revision = "95b1ffbd15a57cc5abb3f04402b9e8ec0016a52c"
+  revision = "7e31e0c00fa05cb5fbf4347b585621d6709e19a4"
 
 [[projects]]
   name = "golang.org/x/text"
@@ -89,7 +89,7 @@
   branch = "master"
   name = "google.golang.org/genproto"
   packages = ["googleapis/api/annotations","googleapis/datastore/v1","googleapis/rpc/code","googleapis/rpc/status","googleapis/type/latlng"]
-  revision = "8b5d7a19e2d98fbad9aaf9c599776bf066d7c70f"
+  revision = "b69ba1387ce2108ac9bc8e8e5e5a46e7d5c72313"
 
 [[projects]]
   name = "google.golang.org/grpc"
@@ -100,6 +100,6 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "dc405e873dc67a409db9c0db160a5fce6eef585fcd42392674a01ce470367709"
+  inputs-digest = "50eceb6c929b3d1a822ab7cc0fbd7389418fa5bc1b0a27372755b50820cecfcb"
   solver-name = "gps-cdcl"
   solver-version = 1
