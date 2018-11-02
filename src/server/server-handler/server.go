@@ -30,6 +30,9 @@ func (s *Server) Get(path string, f func(w http.ResponseWriter, r *http.Request)
 func (s *Server) Post(path string, f func(w http.ResponseWriter, r *http.Request)) {
 	s.Router.HandleFunc(path, f).Methods("POST")
 }
+func (a *Server) Run(host string) {
+	log.Fatal(http.ListenAndServe(host, a.Router))
+}
 
 //Get request handlers
 func (s *Server) getAlerts(w http.ResponseWriter, r *http.Request) {
@@ -45,8 +48,4 @@ func (s *Server) home(w http.ResponseWriter, r *http.Request) {
 
 func (s *Server) addUser(w http.ResponseWriter, r *http.Request) {
 	handler.AddUser(w, r)
-}
-
-func (a *Server) Run(host string) {
-	log.Fatal(http.ListenAndServe(host, a.Router))
 }
