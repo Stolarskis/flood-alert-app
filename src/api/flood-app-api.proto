@@ -1,0 +1,34 @@
+syntax = "proto3";
+
+package pb;
+
+
+message checkAlertsRequest{
+uint64 alertMode = 1;
+}
+
+message checkAlertsResponse{
+string output = 1;
+}
+
+message testAlertsRequest{
+string testMessage = 1;
+}
+
+message testAlertsResponse{
+string  output = 1;
+}
+
+message muteAlertRequest{
+uint64 muteAlertPriority = 1;
+}
+
+message muteAlertResponse{
+string output = 1;
+}
+
+service FloodAlertAppService {
+rpc checkAlerts (checkAlertsRequest) returns (checkAlertsResponse){}
+rpc testAlerts  (testAlertsRequest)   returns (testAlertsResponse){}
+rpc muteAlerts  (muteAlertRequest)  returns (muteAlertResponse){}
+}
