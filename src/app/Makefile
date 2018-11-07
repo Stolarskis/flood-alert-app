@@ -1,7 +1,7 @@
 # ==================== [START] Global Variable Declaration =================== #
 SHELL := /bin/bash
 BASE_DIR := $(shell pwd)
-CONTAINER_REG := gcr.io/flood-alert-app/flood-alert-app
+CONTAINER_REG := gcr.io/flood-alert-app/app
 
 
 push_latest:

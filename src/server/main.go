@@ -10,5 +10,5 @@ func main() {
 	fmt.Println("Starting Server")
 	server := &server.Server{}
 	server.Init()
-	server.Run(":3000")
+	server.Run(":3001")
 }

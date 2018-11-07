@@ -13,7 +13,7 @@ floodAlert:
         #loadBalancerIP: 
         clusterIP: 10.7.240.2
     image:
-        repository: gcr.io/flood-alert-app/flood-alert-app
+        repository: gcr.io/flood-alert-app/app
         version: latest
         pullPolicy: Always
 
@@ -26,7 +26,7 @@ floodAlertCron:
   labels: flood-alert-app
   schedule: "*/30 * * * *"
   image:
-    repository: gcr.io/flood-alert-app/app-flood-ctl
+    repository: gcr.io/flood-alert-app/ctl
     version: latest
     imagePullPolicy: Always
   restartPolicy: Never

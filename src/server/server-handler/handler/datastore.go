@@ -17,7 +17,7 @@ func (u *user) addUserData() error {
 
 	// Create a datastore client. In a typical application, you would create
 	// a single client which is reused for every datastore operation.
-	dsClient, err := datastore.NewClient(ctx, "my-project")
+	dsClient, err := datastore.NewClient(ctx, "flood-alert-app")
 	if err != nil {
 		return errors.Wrap(err, "Failed to create datastore client")
 	}
