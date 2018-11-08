@@ -1,0 +1,30 @@
+---
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: "{{ .Values.server.name }}"
+  labels:
+    app: "{{ .Values.server.labels.app }}"
+spec:
+  selector:
+    matchLabels:
+      app: "{{ .Values.server.labels.app }}"
+  template:
+    metadata:
+      labels:
+        app: "{{ .Values.server.labels.app }}"
+    spec:
+      containers:
+      - image: "{{ .Values.server.image.repository }}:{{ .Values.server.image.version }}"
+        name: "{{ .Values.server.name }}"
+        imagePullPolicy: "{{ .Values.server.image.pullPolicy }}"
+        ports:
+        - name: grpclb 
+          containerPort: {{ .Values.server.internalPort }}
+        resources:
+            requests:
+                memory: "64Mi"
+                cpu: "250m"
+            limits:
+                memory: "128Mi"
+                cpu: "500m"
