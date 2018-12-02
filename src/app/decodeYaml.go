@@ -18,6 +18,7 @@ type SValues struct {
 		EmailDomain     string `yaml:"EmailDomain"`
 		ClientPhone     string `yaml:"ClientPhone"`
 		ServerPhone     string `yaml:"ServerPhone"`
+		DarkSky         string `yaml:"DarkSky"`
 	} `yaml:"apiKeys"`
 	URL string `yaml:"URL"`
 }
