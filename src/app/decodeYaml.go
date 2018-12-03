@@ -20,7 +20,11 @@ type SValues struct {
 		ServerPhone     string `yaml:"ServerPhone"`
 		DarkSky         string `yaml:"DarkSky"`
 	} `yaml:"apiKeys"`
-	URL string `yaml:"URL"`
+	URL      string `yaml:"URL"`
+	Location struct {
+		Lat  float64 `yaml:"Lat"`
+		Long float64 `yaml:"Long"`
+	}
 }
 
 var secrets = new(SValues)

@@ -15,6 +15,7 @@ var emailMute = false
 //3. Notify - Email/Slack message
 //2. Warning - SMS
 //1. Emergency - Call
+/**
 func alert(severity int, message string) {
 
 	switch severity {
@@ -32,15 +33,18 @@ func alert(severity int, message string) {
 		}
 	}
 }
+*/
 
 func sendSMSAlert(alert string) {
-	twilio := gotwilio.NewTwilioClient(secrets.ApiKeys.SMSAccount, secrets.ApiKeys.SMSToken)
+	if smsMute == false {
 
-	from := secrets.ApiKeys.ServerPhone
-	//Send me a text message
-	to := secrets.ApiKeys.ClientPhone
-	message := alert
-	twilio.SendSMS(from, to, message, "", "")
+		twilio := gotwilio.NewTwilioClient(secrets.ApiKeys.SMSAccount, secrets.ApiKeys.SMSToken)
+		from := secrets.ApiKeys.ServerPhone
+		//Send me a text message
+		to := secrets.ApiKeys.ClientPhone
+		message := alert
+		twilio.SendSMS(from, to, message, "", "")
+	}
 }
 
 func sendEmailAlert(message string) {

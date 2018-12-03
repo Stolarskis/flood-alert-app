@@ -28,12 +28,11 @@ func main() {
 
 func (s *server) CheckAlerts(ctx context.Context, r *pb.CheckAlertsRequest) (*pb.CheckAlertsResponse, error) {
 	fmt.Println("Check alerts called")
-	weatherInfo, err := getInfo()
+	err := checkAlertsDarkSky()
 	if err != nil {
-		fmt.Println("Unable to get weather data", err)
+		fmt.Println(err)
 		return nil, err
 	}
-	weatherInfo.processData()
 	return &pb.CheckAlertsResponse{Output: "Checked for Alerts"}, nil
 }
 
