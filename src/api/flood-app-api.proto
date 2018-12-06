@@ -2,7 +2,6 @@ syntax = "proto3";
 
 package pb;
 
-
 message checkAlertsRequest{
 uint64 alertMode = 1;
 }
@@ -19,10 +18,13 @@ message testAlertsResponse{
 string  output = 1;
 }
 
+//Mute SMS = "SMS"
+//Mute Email = "Email"
 message muteAlertRequest{
-uint64 muteAlertPriority = 1;
+string muteAlertType = 1;
 }
 
+//Returns what was sucessfully muted
 message muteAlertResponse{
 string output = 1;
 }
@@ -30,7 +32,7 @@ string output = 1;
 message getCurrentWeatherRequest{}
 
 message getCurrentWeatherResponse{
-string weatherInfo = 1
+string weatherInfo = 1;
 }
 
 service FloodAlertAppService {

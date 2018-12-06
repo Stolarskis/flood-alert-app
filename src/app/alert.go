@@ -7,34 +7,10 @@ import (
 	mailgun "gopkg.in/mailgun/mailgun-go.v1"
 )
 
-var callMute = false
 var smsMute = false
 var emailMute = false
 
-//severity codes
-//3. Notify - Email/Slack message
-//2. Warning - SMS
-//1. Emergency - Call
-/**
-func alert(severity int, message string) {
-
-	switch severity {
-	case 1: //For when calls actually work
-		if callMute {
-			sendCallAlert(message)
-		}
-	case 2:
-		if smsMute {
-			sendSMSAlert(message)
-		}
-	case 3: //When I can get mailgun to actually work
-		if emailMute {
-			sendEmailAlert(message)
-		}
-	}
-}
-*/
-
+//Sends SMS notification via twilio
 func sendSMSAlert(alert string) {
 	if smsMute == false {
 		twilio := gotwilio.NewTwilioClient(secrets.ApiKeys.SMSAccount, secrets.ApiKeys.SMSToken)
@@ -45,19 +21,22 @@ func sendSMSAlert(alert string) {
 	}
 }
 
+//Sends Email notification via mailgun
 func sendEmailAlert(message string) {
-	//mg := mailgun.NewMailgun(domain, privateAPIKey)
-	mg := mailgun.NewMailgun(secrets.ApiKeys.EmailDomain, secrets.ApiKeys.EmailPrivateKey, secrets.ApiKeys.EmailPublicKey)
+	if emailMute == false {
 
-	from := "flood-Alert@alerts.com"
-	subject := "Weather Alert"
-	body := message
-	recipient := "floodapptest@gmail.com"
-	email := mg.NewMessage(from, subject, body, recipient)
-	resp, id, err := mg.Send(email)
-	if err != nil {
-		fmt.Println("Unable to send message", err)
+		mg := mailgun.NewMailgun(secrets.ApiKeys.EmailDomain, secrets.ApiKeys.EmailPrivateKey, secrets.ApiKeys.EmailPublicKey)
+
+		from := "flood-Alert@alerts.com"
+		subject := "Weather Alert"
+		body := message
+		recipient := "floodapptest@gmail.com"
+		email := mg.NewMessage(from, subject, body, recipient)
+		resp, id, err := mg.Send(email)
+		if err != nil {
+			fmt.Println("Unable to send message", err)
+		}
+		fmt.Println(resp, id)
 	}
-	fmt.Println(resp, id)
 
 }
