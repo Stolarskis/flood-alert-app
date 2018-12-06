@@ -7,9 +7,10 @@ List of calls that the client can make:
 - check-alerts - Requests info from api and checks for severe weather (currently just certain weather codes + rain in the past 3 hours above 3 hours)
 - test-alerts - Tests alerts methods - Currently just Text Message and Email 
 - mute-notifications - mutes notifications of each alert type 
-	- 1 = Call (Not implemented yet)
-	- 2 = Text Message
-	- 3 = Email
+  - "Email" mutes email alerts
+  - "SMS" mutes SMS alerts
+  (This functionality is changing soon)
+
 
 ## App-Flood-Ctl
 Small command-line app, that makes requests to the Flood-Server
