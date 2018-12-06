@@ -28,7 +28,7 @@ func main() {
 
 func (s *server) CheckAlerts(ctx context.Context, r *pb.CheckAlertsRequest) (*pb.CheckAlertsResponse, error) {
 	fmt.Println("Check alerts called")
-	err := checkAlertsDarkSky()
+	err := CheckFloodAlerts()
 	if err != nil {
 		fmt.Println(err)
 		return nil, err
@@ -38,7 +38,6 @@ func (s *server) CheckAlerts(ctx context.Context, r *pb.CheckAlertsRequest) (*pb
 
 func (s *server) TestAlerts(ctx context.Context, r *pb.TestAlertsRequest) (*pb.TestAlertsResponse, error) {
 	fmt.Println("test Alerts called")
-	sendCallAlert(r.TestMessage)
 	sendEmailAlert(r.TestMessage)
 	sendSMSAlert(r.TestMessage)
 	return &pb.TestAlertsResponse{Output: "test messages sent"}, nil

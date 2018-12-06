@@ -3,11 +3,14 @@ package main
 import (
 	"fmt"
 	"testing"
+
+	"github.com/shawntoffel/darksky"
 )
 
-func TestGetInfoDarkSky(t *testing.T) {
-
-	_, err := getInfoDarkSky(32.7765, -79.9311)
+func TestConnectionToDarkSky(t *testing.T) {
+	//An error will be thrown if its unable to connect to darksky, tested this by turning off my wifi.
+	//
+	_, err := getForcast(secrets.Location.Lat, secrets.Location.Long)
 	if err != nil {
 		fmt.Println("Failed to get info via DarkSky,", err)
 		t.Fail()
@@ -17,13 +20,31 @@ func TestGetInfoDarkSky(t *testing.T) {
 	//fmt.Println(response.Alerts)
 }
 
-func TestCheckAlertsDarkSky(t *testing.T) {
-	checkAlertsDarkSky()
+func TestCheckAlerts(t *testing.T) {
+	//Flood alerts are rare, better to test a couple things here.
+
+	//1. Check if our alert is sent the first time.
+	mockForcast := darksky.ForecastResponse{}
+	alert := &darksky.Alert{
+		Title:       "THERES A FLOOD RUN FOR THE HILLS",
+		Severity:    "Warning",
+		Description: "Test Description of flood alert",
+	}
+	mockForcast.Alerts = append(mockForcast.Alerts, alert)
+	forcast = mockForcast
+	CheckFloodAlerts()
+	//2. Give the alert again and the message shouldn't be sent a second time.
+	CheckFloodAlerts()
+	//Note: I should be able to mock the smsAlert call.
 }
 
-func TestUpdateInfoDarkSky(t *testing.T) {
-	fmt.Println("Should be empty", weatherInfo)
-	UpdateWeatherInfo()
-	fmt.Println(weatherInfo)
+func TestUpdateInfoDarkSkyFromNull(t *testing.T) {
+	//important to note that this is testing if null package variable is updated or not.
+	//Lat will always be 0 to start.
+	testLat := forcast.Latitude
+	updateForcast()
+	if testLat == forcast.Latitude {
+		fmt.Println("Failed to update")
+	}
 
 }

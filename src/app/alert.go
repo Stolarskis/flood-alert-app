@@ -4,7 +4,7 @@ import (
 	"fmt"
 
 	"github.com/sfreiberg/gotwilio"
-	"gopkg.in/mailgun/mailgun-go.v1"
+	mailgun "gopkg.in/mailgun/mailgun-go.v1"
 )
 
 var callMute = false
@@ -37,13 +37,11 @@ func alert(severity int, message string) {
 
 func sendSMSAlert(alert string) {
 	if smsMute == false {
-
 		twilio := gotwilio.NewTwilioClient(secrets.ApiKeys.SMSAccount, secrets.ApiKeys.SMSToken)
 		from := secrets.ApiKeys.ServerPhone
 		//Send me a text message
 		to := secrets.ApiKeys.ClientPhone
-		message := alert
-		twilio.SendSMS(from, to, message, "", "")
+		twilio.SendSMS(from, to, alert, "", "")
 	}
 }
 
@@ -62,8 +60,4 @@ func sendEmailAlert(message string) {
 	}
 	fmt.Println(resp, id)
 
-}
-
-func sendCallAlert(message string) {
-	fmt.Println("Calling is not yet implemented. Message: ", message)
 }
