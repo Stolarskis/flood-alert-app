@@ -5,9 +5,8 @@ import (
 	"fmt"
 	"log"
 	"os"
-	"strconv"
 
-	"github.com/Stolarskis/flood-alert-app/src/app-flood-api"
+	pb "github.com/Stolarskis/flood-alert-app/src/api"
 	"github.com/pkg/errors"
 	"github.com/urfave/cli"
 )
@@ -53,6 +52,15 @@ func main() {
 				return nil
 			},
 		},
+		{
+			Name: "getForcast",
+			Aliases: []string["g"],
+			Usage: "Gets the current weather information",
+			Action: func(c *cli.Context) error {
+				err := muteAlert(c)
+			}
+
+		},
 	}
 
 	err := app.Run(os.Args)
@@ -79,7 +87,7 @@ func checkInfo() error {
 	return nil
 }
 
-// Sends
+// Tests methods of alerts 
 func testAlerts() error {
 	client, err := pb.CreateClient()
 	if err != nil {
@@ -95,26 +103,28 @@ func testAlerts() error {
 	return nil
 }
 
+//Mutes alerts, enter "Email" or "SMS"
 func muteAlert(c *cli.Context) error {
 	client, err := pb.CreateClient()
 	if err != nil {
 		return err
 	}
 	ctx := context.Background()
-	priority, err := strconv.ParseUint(c.Args().Get(0), 10, 64)
-	fmt.Println(priority)
-	if err != nil {
-		return errors.Wrap(err, "Failed to convert input to correct format")
-	}
 
-	if priority < 1 && priority > 3 {
-		return errors.New("Incorrect input from user")
-	}
-
-	muteAlertResponse, err := client.MuteAlerts(ctx, &pb.MuteAlertRequest{MuteAlertPriority: priority})
+	muteAlertResponse, err := client.MuteAlerts(ctx, &pb.MuteAlertRequest{MuteAlertType: c.Args().Get(0)})
 	if err != nil {
 		return errors.Wrap(err, "Failed to send message to app")
 	}
 	fmt.Println(muteAlertResponse)
 	return nil
+}
+
+func getForcast(c *cli.Context) error{
+	client, err := pb.CreateClient()
+	if err != nil{
+		return err
+	}
+	ctx := context.Background()
+
+	forcastResponse,err := client.
 }

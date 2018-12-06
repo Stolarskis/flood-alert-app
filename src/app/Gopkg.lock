@@ -4,8 +4,8 @@
 [[projects]]
   branch = "master"
   name = "github.com/Stolarskis/flood-alert-app"
-  packages = ["src/app-flood-api"]
-  revision = "4171e940ce7d7b921d2f30a9eda0bbddd6644487"
+  packages = ["src/api"]
+  revision = "46be0a513937b250d0e2cfb042dd29aa5df4a345"
 
 [[projects]]
   name = "github.com/dgrijalva/jwt-go"
@@ -41,7 +41,7 @@
   branch = "master"
   name = "github.com/sfreiberg/gotwilio"
   packages = ["."]
-  revision = "f446a6ddc88051bf1d4c1f950e8691c7f6d6364d"
+  revision = "a13e5b0d458a0a7d43d24d118af756822d02d26c"
 
 [[projects]]
   name = "github.com/shawntoffel/darksky"
@@ -53,13 +53,13 @@
   branch = "master"
   name = "golang.org/x/net"
   packages = ["context","http/httpguts","http2","http2/hpack","idna","internal/timeseries","trace"]
-  revision = "49bb7cea24b1df9410e1712aa6433dae904ff66a"
+  revision = "351d144fa1fc0bd934e2408202be0c29f25e35a0"
 
 [[projects]]
   branch = "master"
   name = "golang.org/x/sys"
   packages = ["unix"]
-  revision = "fa43e7bc11baaae89f3f902b2b4d832b68234844"
+  revision = "a5c9d58dba9a56f97aaa86f55e638b718c5a6c42"
 
 [[projects]]
   name = "golang.org/x/text"
@@ -71,13 +71,13 @@
   branch = "master"
   name = "google.golang.org/genproto"
   packages = ["googleapis/rpc/status"]
-  revision = "af9cb2a35e7f169ec875002c1829c9b315cddc04"
+  revision = "bd91e49a0898e27abb88c339b432fa53d7497ac0"
 
 [[projects]]
   name = "google.golang.org/grpc"
-  packages = [".","balancer","balancer/base","balancer/roundrobin","codes","connectivity","credentials","encoding","encoding/proto","grpclog","internal","internal/backoff","internal/channelz","internal/envconfig","internal/grpcrand","internal/transport","keepalive","metadata","naming","peer","reflection","reflection/grpc_reflection_v1alpha","resolver","resolver/dns","resolver/passthrough","stats","status","tap"]
-  revision = "8dea3dc473e90c8179e519d91302d0597c0ca1d1"
-  version = "v1.15.0"
+  packages = [".","balancer","balancer/base","balancer/roundrobin","binarylog/grpc_binarylog_v1","codes","connectivity","credentials","credentials/internal","encoding","encoding/proto","grpclog","internal","internal/backoff","internal/binarylog","internal/channelz","internal/envconfig","internal/grpcrand","internal/grpcsync","internal/syscall","internal/transport","keepalive","metadata","naming","peer","reflection","reflection/grpc_reflection_v1alpha","resolver","resolver/dns","resolver/passthrough","stats","status","tap"]
+  revision = "df014850f6dee74ba2fc94874043a9f3f75fbfd8"
+  version = "v1.17.0"
 
 [[projects]]
   name = "gopkg.in/mailgun/mailgun-go.v1"
@@ -88,12 +88,12 @@
 [[projects]]
   name = "gopkg.in/yaml.v2"
   packages = ["."]
-  revision = "5420a8b6744d3b0345ab293f6fcba19c978f1183"
-  version = "v2.2.1"
+  revision = "51d6538a90f86fe93ac480b35f37b2be17fef232"
+  version = "v2.2.2"
 
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "5f9972256c5a39ce374edd54b28a46b5cf0f7dd207c8d77ad82911d495a61e67"
+  inputs-digest = "0909fe10b590dfbee6ed76a5d1ab05a43465dab53d9e5fcf96115b43dabc9d88"
   solver-name = "gps-cdcl"
   solver-version = 1

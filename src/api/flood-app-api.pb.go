@@ -34,7 +34,7 @@ func (m *CheckAlertsRequest) Reset()         { *m = CheckAlertsRequest{} }
 func (m *CheckAlertsRequest) String() string { return proto.CompactTextString(m) }
 func (*CheckAlertsRequest) ProtoMessage()    {}
 func (*CheckAlertsRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_flood_app_api_358c77da7732a89f, []int{0}
+	return fileDescriptor_flood_app_api_8728b65267e4efa5, []int{0}
 }
 func (m *CheckAlertsRequest) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_CheckAlertsRequest.Unmarshal(m, b)
@@ -72,7 +72,7 @@ func (m *CheckAlertsResponse) Reset()         { *m = CheckAlertsResponse{} }
 func (m *CheckAlertsResponse) String() string { return proto.CompactTextString(m) }
 func (*CheckAlertsResponse) ProtoMessage()    {}
 func (*CheckAlertsResponse) Descriptor() ([]byte, []int) {
-	return fileDescriptor_flood_app_api_358c77da7732a89f, []int{1}
+	return fileDescriptor_flood_app_api_8728b65267e4efa5, []int{1}
 }
 func (m *CheckAlertsResponse) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_CheckAlertsResponse.Unmarshal(m, b)
@@ -110,7 +110,7 @@ func (m *TestAlertsRequest) Reset()         { *m = TestAlertsRequest{} }
 func (m *TestAlertsRequest) String() string { return proto.CompactTextString(m) }
 func (*TestAlertsRequest) ProtoMessage()    {}
 func (*TestAlertsRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_flood_app_api_358c77da7732a89f, []int{2}
+	return fileDescriptor_flood_app_api_8728b65267e4efa5, []int{2}
 }
 func (m *TestAlertsRequest) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_TestAlertsRequest.Unmarshal(m, b)
@@ -148,7 +148,7 @@ func (m *TestAlertsResponse) Reset()         { *m = TestAlertsResponse{} }
 func (m *TestAlertsResponse) String() string { return proto.CompactTextString(m) }
 func (*TestAlertsResponse) ProtoMessage()    {}
 func (*TestAlertsResponse) Descriptor() ([]byte, []int) {
-	return fileDescriptor_flood_app_api_358c77da7732a89f, []int{3}
+	return fileDescriptor_flood_app_api_8728b65267e4efa5, []int{3}
 }
 func (m *TestAlertsResponse) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_TestAlertsResponse.Unmarshal(m, b)
@@ -188,7 +188,7 @@ func (m *MuteAlertRequest) Reset()         { *m = MuteAlertRequest{} }
 func (m *MuteAlertRequest) String() string { return proto.CompactTextString(m) }
 func (*MuteAlertRequest) ProtoMessage()    {}
 func (*MuteAlertRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_flood_app_api_358c77da7732a89f, []int{4}
+	return fileDescriptor_flood_app_api_8728b65267e4efa5, []int{4}
 }
 func (m *MuteAlertRequest) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_MuteAlertRequest.Unmarshal(m, b)
@@ -227,7 +227,7 @@ func (m *MuteAlertResponse) Reset()         { *m = MuteAlertResponse{} }
 func (m *MuteAlertResponse) String() string { return proto.CompactTextString(m) }
 func (*MuteAlertResponse) ProtoMessage()    {}
 func (*MuteAlertResponse) Descriptor() ([]byte, []int) {
-	return fileDescriptor_flood_app_api_358c77da7732a89f, []int{5}
+	return fileDescriptor_flood_app_api_8728b65267e4efa5, []int{5}
 }
 func (m *MuteAlertResponse) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_MuteAlertResponse.Unmarshal(m, b)
@@ -254,70 +254,70 @@ func (m *MuteAlertResponse) GetOutput() string {
 	return ""
 }
 
-type GetCurrentWeatherRequest struct {
+type GetForcastRequest struct {
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
 	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *GetCurrentWeatherRequest) Reset()         { *m = GetCurrentWeatherRequest{} }
-func (m *GetCurrentWeatherRequest) String() string { return proto.CompactTextString(m) }
-func (*GetCurrentWeatherRequest) ProtoMessage()    {}
-func (*GetCurrentWeatherRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_flood_app_api_358c77da7732a89f, []int{6}
+func (m *GetForcastRequest) Reset()         { *m = GetForcastRequest{} }
+func (m *GetForcastRequest) String() string { return proto.CompactTextString(m) }
+func (*GetForcastRequest) ProtoMessage()    {}
+func (*GetForcastRequest) Descriptor() ([]byte, []int) {
+	return fileDescriptor_flood_app_api_8728b65267e4efa5, []int{6}
 }
-func (m *GetCurrentWeatherRequest) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_GetCurrentWeatherRequest.Unmarshal(m, b)
+func (m *GetForcastRequest) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_GetForcastRequest.Unmarshal(m, b)
 }
-func (m *GetCurrentWeatherRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_GetCurrentWeatherRequest.Marshal(b, m, deterministic)
+func (m *GetForcastRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_GetForcastRequest.Marshal(b, m, deterministic)
 }
-func (dst *GetCurrentWeatherRequest) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_GetCurrentWeatherRequest.Merge(dst, src)
+func (dst *GetForcastRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_GetForcastRequest.Merge(dst, src)
 }
-func (m *GetCurrentWeatherRequest) XXX_Size() int {
-	return xxx_messageInfo_GetCurrentWeatherRequest.Size(m)
+func (m *GetForcastRequest) XXX_Size() int {
+	return xxx_messageInfo_GetForcastRequest.Size(m)
 }
-func (m *GetCurrentWeatherRequest) XXX_DiscardUnknown() {
-	xxx_messageInfo_GetCurrentWeatherRequest.DiscardUnknown(m)
+func (m *GetForcastRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_GetForcastRequest.DiscardUnknown(m)
 }
 
-var xxx_messageInfo_GetCurrentWeatherRequest proto.InternalMessageInfo
+var xxx_messageInfo_GetForcastRequest proto.InternalMessageInfo
 
-type GetCurrentWeatherResponse struct {
-	WeatherInfo          string   `protobuf:"bytes,1,opt,name=weatherInfo,proto3" json:"weatherInfo,omitempty"`
+type GetForcastResponse struct {
+	Forcast              string   `protobuf:"bytes,1,opt,name=forcast,proto3" json:"forcast,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
 	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *GetCurrentWeatherResponse) Reset()         { *m = GetCurrentWeatherResponse{} }
-func (m *GetCurrentWeatherResponse) String() string { return proto.CompactTextString(m) }
-func (*GetCurrentWeatherResponse) ProtoMessage()    {}
-func (*GetCurrentWeatherResponse) Descriptor() ([]byte, []int) {
-	return fileDescriptor_flood_app_api_358c77da7732a89f, []int{7}
+func (m *GetForcastResponse) Reset()         { *m = GetForcastResponse{} }
+func (m *GetForcastResponse) String() string { return proto.CompactTextString(m) }
+func (*GetForcastResponse) ProtoMessage()    {}
+func (*GetForcastResponse) Descriptor() ([]byte, []int) {
+	return fileDescriptor_flood_app_api_8728b65267e4efa5, []int{7}
 }
-func (m *GetCurrentWeatherResponse) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_GetCurrentWeatherResponse.Unmarshal(m, b)
+func (m *GetForcastResponse) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_GetForcastResponse.Unmarshal(m, b)
 }
-func (m *GetCurrentWeatherResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_GetCurrentWeatherResponse.Marshal(b, m, deterministic)
+func (m *GetForcastResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_GetForcastResponse.Marshal(b, m, deterministic)
 }
-func (dst *GetCurrentWeatherResponse) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_GetCurrentWeatherResponse.Merge(dst, src)
+func (dst *GetForcastResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_GetForcastResponse.Merge(dst, src)
 }
-func (m *GetCurrentWeatherResponse) XXX_Size() int {
-	return xxx_messageInfo_GetCurrentWeatherResponse.Size(m)
+func (m *GetForcastResponse) XXX_Size() int {
+	return xxx_messageInfo_GetForcastResponse.Size(m)
 }
-func (m *GetCurrentWeatherResponse) XXX_DiscardUnknown() {
-	xxx_messageInfo_GetCurrentWeatherResponse.DiscardUnknown(m)
+func (m *GetForcastResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_GetForcastResponse.DiscardUnknown(m)
 }
 
-var xxx_messageInfo_GetCurrentWeatherResponse proto.InternalMessageInfo
+var xxx_messageInfo_GetForcastResponse proto.InternalMessageInfo
 
-func (m *GetCurrentWeatherResponse) GetWeatherInfo() string {
+func (m *GetForcastResponse) GetForcast() string {
 	if m != nil {
-		return m.WeatherInfo
+		return m.Forcast
 	}
 	return ""
 }
@@ -329,8 +329,8 @@ func init() {
 	proto.RegisterType((*TestAlertsResponse)(nil), "pb.testAlertsResponse")
 	proto.RegisterType((*MuteAlertRequest)(nil), "pb.muteAlertRequest")
 	proto.RegisterType((*MuteAlertResponse)(nil), "pb.muteAlertResponse")
-	proto.RegisterType((*GetCurrentWeatherRequest)(nil), "pb.getCurrentWeatherRequest")
-	proto.RegisterType((*GetCurrentWeatherResponse)(nil), "pb.getCurrentWeatherResponse")
+	proto.RegisterType((*GetForcastRequest)(nil), "pb.getForcastRequest")
+	proto.RegisterType((*GetForcastResponse)(nil), "pb.getForcastResponse")
 }
 
 // Reference imports to suppress errors if they are not otherwise used.
@@ -348,6 +348,7 @@ type FloodAlertAppServiceClient interface {
 	CheckAlerts(ctx context.Context, in *CheckAlertsRequest, opts ...grpc.CallOption) (*CheckAlertsResponse, error)
 	TestAlerts(ctx context.Context, in *TestAlertsRequest, opts ...grpc.CallOption) (*TestAlertsResponse, error)
 	MuteAlerts(ctx context.Context, in *MuteAlertRequest, opts ...grpc.CallOption) (*MuteAlertResponse, error)
+	GetForcast(ctx context.Context, in *GetForcastRequest, opts ...grpc.CallOption) (*GetForcastResponse, error)
 }
 
 type floodAlertAppServiceClient struct {
@@ -385,11 +386,21 @@ func (c *floodAlertAppServiceClient) MuteAlerts(ctx context.Context, in *MuteAle
 	return out, nil
 }
 
+func (c *floodAlertAppServiceClient) GetForcast(ctx context.Context, in *GetForcastRequest, opts ...grpc.CallOption) (*GetForcastResponse, error) {
+	out := new(GetForcastResponse)
+	err := c.cc.Invoke(ctx, "/pb.FloodAlertAppService/getForcast", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // FloodAlertAppServiceServer is the server API for FloodAlertAppService service.
 type FloodAlertAppServiceServer interface {
 	CheckAlerts(context.Context, *CheckAlertsRequest) (*CheckAlertsResponse, error)
 	TestAlerts(context.Context, *TestAlertsRequest) (*TestAlertsResponse, error)
 	MuteAlerts(context.Context, *MuteAlertRequest) (*MuteAlertResponse, error)
+	GetForcast(context.Context, *GetForcastRequest) (*GetForcastResponse, error)
 }
 
 func RegisterFloodAlertAppServiceServer(s *grpc.Server, srv FloodAlertAppServiceServer) {
@@ -450,6 +461,24 @@ func _FloodAlertAppService_MuteAlerts_Handler(srv interface{}, ctx context.Conte
 	return interceptor(ctx, in, info, handler)
 }
 
+func _FloodAlertAppService_GetForcast_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetForcastRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(FloodAlertAppServiceServer).GetForcast(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/pb.FloodAlertAppService/GetForcast",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(FloodAlertAppServiceServer).GetForcast(ctx, req.(*GetForcastRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 var _FloodAlertAppService_serviceDesc = grpc.ServiceDesc{
 	ServiceName: "pb.FloodAlertAppService",
 	HandlerType: (*FloodAlertAppServiceServer)(nil),
@@ -466,33 +495,36 @@ var _FloodAlertAppService_serviceDesc = grpc.ServiceDesc{
 			MethodName: "muteAlerts",
 			Handler:    _FloodAlertAppService_MuteAlerts_Handler,
 		},
+		{
+			MethodName: "getForcast",
+			Handler:    _FloodAlertAppService_GetForcast_Handler,
+		},
 	},
 	Streams:  []grpc.StreamDesc{},
 	Metadata: "flood-app-api.proto",
 }
 
-func init() { proto.RegisterFile("flood-app-api.proto", fileDescriptor_flood_app_api_358c77da7732a89f) }
+func init() { proto.RegisterFile("flood-app-api.proto", fileDescriptor_flood_app_api_8728b65267e4efa5) }
 
-var fileDescriptor_flood_app_api_358c77da7732a89f = []byte{
-	// 305 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x84, 0x92, 0x4d, 0x4b, 0xc3, 0x40,
-	0x10, 0x86, 0x8d, 0x48, 0xa1, 0x13, 0x04, 0xbb, 0x6d, 0x63, 0x0d, 0x1e, 0xc2, 0xe2, 0x41, 0xd0,
-	0xe4, 0x50, 0x11, 0x04, 0x29, 0x58, 0x04, 0xc1, 0x43, 0x2f, 0x51, 0xf0, 0x9c, 0xa4, 0xd3, 0x0f,
-	0xac, 0xd9, 0x75, 0x77, 0xa2, 0xf8, 0x3f, 0xfd, 0x41, 0x92, 0x34, 0x49, 0xf3, 0x21, 0xf4, 0x98,
-	0x27, 0xf3, 0xe6, 0xc9, 0xbe, 0xb3, 0xd0, 0x5f, 0x6c, 0x84, 0x98, 0xbb, 0x81, 0x94, 0x6e, 0x20,
-	0xd7, 0x9e, 0x54, 0x82, 0x04, 0x3b, 0x94, 0x21, 0x1f, 0x03, 0x8b, 0x56, 0x18, 0xbd, 0x4f, 0x37,
-	0xa8, 0x48, 0xfb, 0xf8, 0x99, 0xa0, 0x26, 0x76, 0x0e, 0xdd, 0x20, 0x05, 0x33, 0x31, 0xc7, 0x91,
-	0xe1, 0x18, 0x97, 0x47, 0xfe, 0x0e, 0x70, 0x17, 0xfa, 0xb5, 0x8c, 0x96, 0x22, 0xd6, 0xc8, 0x2c,
-	0xe8, 0x88, 0x84, 0x64, 0x42, 0x59, 0xa2, 0xeb, 0xe7, 0x4f, 0xfc, 0x16, 0x7a, 0x84, 0x9a, 0xea,
-	0x06, 0x07, 0xcc, 0x14, 0xce, 0x50, 0xeb, 0x60, 0x89, 0x79, 0xa2, 0x8a, 0xf8, 0x35, 0xb0, 0x6a,
-	0x6c, 0x8f, 0xe4, 0x0e, 0x4e, 0x3e, 0x12, 0xc2, 0x6c, 0xba, 0x70, 0x5c, 0xc0, 0x71, 0xc9, 0x5e,
-	0x7f, 0x64, 0x61, 0xa9, 0x43, 0x7e, 0x05, 0xbd, 0x4a, 0x72, 0x8f, 0xc6, 0x86, 0xd1, 0x12, 0xe9,
-	0x31, 0x51, 0x0a, 0x63, 0x7a, 0xc3, 0x80, 0x56, 0xa8, 0x72, 0x1d, 0x9f, 0xc0, 0xd9, 0x3f, 0xef,
-	0xf2, 0x0f, 0x3a, 0x60, 0x7e, 0x6f, 0xd1, 0x73, 0xbc, 0x10, 0xc5, 0x79, 0x2b, 0x68, 0xfc, 0x6b,
-	0xc0, 0xe0, 0x29, 0xdd, 0x52, 0xf6, 0x27, 0x53, 0x29, 0x5f, 0x50, 0x7d, 0xad, 0x23, 0x64, 0x0f,
-	0x60, 0x56, 0xea, 0x66, 0x96, 0x27, 0x43, 0xaf, 0xbd, 0x33, 0xfb, 0xb4, 0xc5, 0xb7, 0x6a, 0x7e,
-	0xc0, 0x26, 0x00, 0xbb, 0x2a, 0xd9, 0x30, 0x1d, 0x6c, 0x6d, 0xc4, 0xb6, 0x9a, 0xb8, 0x8c, 0xdf,
-	0x03, 0x94, 0x0d, 0x69, 0x36, 0x48, 0xe7, 0x9a, 0x5d, 0xdb, 0xc3, 0x06, 0x2d, 0xc2, 0x61, 0x27,
-	0xbb, 0x6b, 0x37, 0x7f, 0x01, 0x00, 0x00, 0xff, 0xff, 0x23, 0xe7, 0x99, 0x95, 0x82, 0x02, 0x00,
-	0x00,
+var fileDescriptor_flood_app_api_8728b65267e4efa5 = []byte{
+	// 303 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x84, 0x92, 0x4f, 0x4b, 0xf3, 0x40,
+	0x10, 0xc6, 0xdb, 0xf2, 0xd2, 0x97, 0x4e, 0x11, 0xec, 0xa4, 0x8d, 0x25, 0x78, 0x28, 0x8b, 0x07,
+	0x41, 0x93, 0x43, 0x45, 0x10, 0x44, 0xb0, 0x97, 0xde, 0x7a, 0x89, 0x7e, 0x81, 0x24, 0x9d, 0xd6,
+	0x62, 0x75, 0xc7, 0xec, 0x46, 0xf0, 0x73, 0xf8, 0x85, 0x25, 0xff, 0x37, 0xc9, 0xa1, 0xc7, 0xfd,
+	0x31, 0xcf, 0xfc, 0xe0, 0x99, 0x05, 0x6b, 0x77, 0x94, 0x72, 0xeb, 0x06, 0xcc, 0x6e, 0xc0, 0x07,
+	0x8f, 0x63, 0xa9, 0x25, 0x0e, 0x38, 0x14, 0x4b, 0xc0, 0xe8, 0x8d, 0xa2, 0xf7, 0xd5, 0x91, 0x62,
+	0xad, 0x7c, 0xfa, 0x4a, 0x48, 0x69, 0xbc, 0x84, 0x51, 0x90, 0x82, 0x8d, 0xdc, 0xd2, 0xbc, 0xbf,
+	0xe8, 0x5f, 0xff, 0xf3, 0x6b, 0x20, 0x5c, 0xb0, 0x1a, 0x19, 0xc5, 0xf2, 0x53, 0x11, 0xda, 0x30,
+	0x94, 0x89, 0xe6, 0x44, 0x67, 0x89, 0x91, 0x5f, 0xbc, 0xc4, 0x3d, 0x4c, 0x34, 0x29, 0xdd, 0x34,
+	0x2c, 0x60, 0x9c, 0xc2, 0x0d, 0x29, 0x15, 0xec, 0xa9, 0x48, 0x98, 0x48, 0xdc, 0x02, 0x9a, 0xb1,
+	0x13, 0x92, 0x07, 0x38, 0xff, 0x48, 0x34, 0x65, 0xd3, 0xa5, 0xe3, 0x0a, 0xce, 0x2a, 0xf6, 0xfa,
+	0xc3, 0xa5, 0xa5, 0x09, 0xc5, 0x0d, 0x4c, 0x8c, 0xe4, 0x09, 0x8d, 0x05, 0x93, 0x3d, 0xe9, 0xb5,
+	0x8c, 0xa3, 0x40, 0x95, 0x1e, 0xe1, 0x01, 0x9a, 0xb0, 0x58, 0x31, 0x87, 0xff, 0xbb, 0x1c, 0x15,
+	0x3b, 0xca, 0xe7, 0xf2, 0x77, 0x00, 0xd3, 0x75, 0x7a, 0x8f, 0xcc, 0xb9, 0x62, 0x7e, 0xa1, 0xf8,
+	0xfb, 0x10, 0x11, 0x3e, 0xc3, 0xd8, 0x28, 0x16, 0x6d, 0x8f, 0x43, 0xaf, 0x7b, 0x1d, 0xe7, 0xa2,
+	0xc3, 0x73, 0xa5, 0xe8, 0xe1, 0x13, 0x40, 0x5d, 0x1a, 0xce, 0xd2, 0xc1, 0x4e, 0xf7, 0x8e, 0xdd,
+	0xc6, 0x55, 0xfc, 0x11, 0xa0, 0xea, 0x42, 0xe1, 0x34, 0x9d, 0x6b, 0xb7, 0xea, 0xcc, 0x5a, 0xd4,
+	0x74, 0xd7, 0x35, 0xe4, 0xee, 0x4e, 0x57, 0xb9, 0xbb, 0xdb, 0x96, 0xe8, 0x85, 0xc3, 0xec, 0x53,
+	0xde, 0xfd, 0x05, 0x00, 0x00, 0xff, 0xff, 0xdc, 0xfe, 0xa7, 0xd7, 0xab, 0x02, 0x00, 0x00,
 }

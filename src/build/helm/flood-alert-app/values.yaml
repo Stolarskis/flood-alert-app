@@ -10,8 +10,8 @@ floodAlert:
     internalPort: 3000 
     service:
         type: LoadBalancer
-        #loadBalancerIP: 
-        clusterIP: 10.7.240.2
+        loadBalancerIP: "35.231.23.209"
+        clusterIP: "10.7.240.2"
     image:
         repository: gcr.io/flood-alert-app/app
         version: latest
@@ -22,7 +22,7 @@ testVersion:
         version: latest
 
 floodAlertCron:
-  name: app-flood-ctl
+  name: cron-ctl
   labels: flood-alert-app
   schedule: "*/30 * * * *"
   image:
@@ -30,3 +30,18 @@ floodAlertCron:
     version: latest
     imagePullPolicy: Always
   restartPolicy: Never
+
+
+server:
+    name: server
+    replicaCount: 1
+    labels: 
+        app: flood-alert-app
+    externalPort: 3001
+    internalPort: 3001
+    service:
+        type: LoadBalancer
+        loadBalancerIP: "35.231.23.209"
+        clusterIP: "10.7.240.3"
+    image:
+        repository: gcr.io/flood-alert-app/server

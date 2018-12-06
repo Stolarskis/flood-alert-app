@@ -29,14 +29,15 @@ message muteAlertResponse{
 string output = 1;
 }
 
-message getCurrentWeatherRequest{}
+message getForcastRequest{}
 
-message getCurrentWeatherResponse{
-string weatherInfo = 1;
+message getForcastResponse{
+string forcast = 1;
 }
 
 service FloodAlertAppService {
 rpc checkAlerts (checkAlertsRequest) returns (checkAlertsResponse){}
 rpc testAlerts  (testAlertsRequest)   returns (testAlertsResponse){}
 rpc muteAlerts  (muteAlertRequest)  returns (muteAlertResponse){}
+rpc getForcast  (getForcastRequest) returns (getForcastResponse){}
 }

@@ -6,7 +6,8 @@ import (
 	"log"
 	"net"
 
-	pb "github.com/Stolarskis/flood-alert-app/src/app-flood-api"
+	pb "github.com/Stolarskis/flood-alert-app/src/api"
+	"github.com/pkg/errors"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/reflection"
 )
@@ -45,16 +46,21 @@ func (s *server) TestAlerts(ctx context.Context, r *pb.TestAlertsRequest) (*pb.T
 
 //Mutes/unmutes alerts -
 func (s *server) MuteAlerts(ctx context.Context, r *pb.MuteAlertRequest) (*pb.MuteAlertResponse, error) {
+
 	fmt.Println("Mute Alerts called")
-	var alert string
-	if r.MuteAlertPriority == 1 {
-	return &pb.MuteAlertResponse{Output: alert}, nil
-}
-
-func switchBool(b bool) bool {
-	if b {
-		return false
+	if r.MuteAlertType == "SMS" {
+		smsMute = !smsMute
+		if smsMute {
+			return &pb.MuteAlertResponse{Output: "Muted SMS Alerts"}, nil
+		}
+		return &pb.MuteAlertResponse{Output: "Unmuted SMS Alerts"}, nil
 	}
-	return true
-
+	if r.MuteAlertType == "Email" {
+		emailMute = !emailMute
+		if emailMute {
+			return &pb.MuteAlertResponse{Output: "Muted Email Alerts"}, nil
+		}
+		return &pb.MuteAlertResponse{Output: "Unmuted Email Alerts"}, nil
+	}
+	return nil, errors.New("Wrong type entered, can only be either SMS or Email")
 }
