@@ -28,7 +28,6 @@ func main() {
 }
 
 func (s *server) CheckAlerts(ctx context.Context, r *pb.CheckAlertsRequest) (*pb.CheckAlertsResponse, error) {
-	fmt.Println("Check alerts called")
 	err := CheckFloodAlerts()
 	if err != nil {
 		fmt.Println(err)
@@ -38,7 +37,6 @@ func (s *server) CheckAlerts(ctx context.Context, r *pb.CheckAlertsRequest) (*pb
 }
 
 func (s *server) TestAlerts(ctx context.Context, r *pb.TestAlertsRequest) (*pb.TestAlertsResponse, error) {
-	fmt.Println("test Alerts called")
 	sendEmailAlert(r.TestMessage)
 	sendSMSAlert(r.TestMessage)
 	return &pb.TestAlertsResponse{Output: "test messages sent"}, nil
@@ -47,20 +45,27 @@ func (s *server) TestAlerts(ctx context.Context, r *pb.TestAlertsRequest) (*pb.T
 //Mutes/unmutes alerts -
 func (s *server) MuteAlerts(ctx context.Context, r *pb.MuteAlertRequest) (*pb.MuteAlertResponse, error) {
 
-	fmt.Println("Mute Alerts called")
-	if r.MuteAlertType == "SMS" {
-		smsMute = !smsMute
-		if smsMute {
+	if r.MuteAlertType == "sms" {
+		smsMute = r.MuteAlertStatus
+		if r.MuteAlertStatus {
 			return &pb.MuteAlertResponse{Output: "Muted SMS Alerts"}, nil
 		}
 		return &pb.MuteAlertResponse{Output: "Unmuted SMS Alerts"}, nil
 	}
-	if r.MuteAlertType == "Email" {
+	if r.MuteAlertType == "email" {
 		emailMute = !emailMute
-		if emailMute {
+		if r.MuteAlertStatus {
 			return &pb.MuteAlertResponse{Output: "Muted Email Alerts"}, nil
 		}
 		return &pb.MuteAlertResponse{Output: "Unmuted Email Alerts"}, nil
 	}
-	return nil, errors.New("Wrong type entered, can only be either SMS or Email")
+	return nil, errors.New("Wrong type entered, can only be either SMS or Email, not case sensitive")
+}
+
+func (s *server) GetForcast(ctx context.Context, r *pb.GetForcastRequest) (*pb.GetForcastResponse, error) {
+	forcast, err := getCurrentForcast()
+	if err != nil {
+		return nil, errors.Wrap(err, "Failed to get forcast")
+	}
+	return &pb.GetForcastResponse{Forcast: forcast}, nil
 }
