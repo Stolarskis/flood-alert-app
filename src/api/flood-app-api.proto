@@ -18,10 +18,11 @@ message testAlertsResponse{
 string  output = 1;
 }
 
-//Mute SMS = "SMS"
-//Mute Email = "Email"
+//Mute SMS = "SMS True/False"
+//Mute Email = "Email True/False"
 message muteAlertRequest{
 string muteAlertType = 1;
+bool   muteAlertStatus = 2;
 }
 
 //Returns what was sucessfully muted
