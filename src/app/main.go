@@ -63,9 +63,12 @@ func (s *server) MuteAlerts(ctx context.Context, r *pb.MuteAlertRequest) (*pb.Mu
 }
 
 func (s *server) GetForcast(ctx context.Context, r *pb.GetForcastRequest) (*pb.GetForcastResponse, error) {
-	forcast, err := getCurrentForcast()
+	forecast, err := getCurrentForcast()
 	if err != nil {
 		return nil, errors.Wrap(err, "Failed to get forcast")
 	}
-	return &pb.GetForcastResponse{Forcast: forcast}, nil
+
+	forcastString := fmt.Sprintf("Summary:  %s, Temp: %v, Change of Rain: %v", forecast.Currently.Summary, int(forecast.Currently.Temperature), int(forecast.Currently.PrecipProbability))
+
+	return &pb.GetForcastResponse{Forcast: forcastString}, nil
 }

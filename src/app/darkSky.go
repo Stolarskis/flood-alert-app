@@ -38,12 +38,12 @@ func CheckFloodAlerts() error {
 }
 
 //getCurrentInfo returns the current info from the last update
-func getCurrentForcast() (string, error) {
+func getCurrentForcast() (darksky.ForecastResponse, error) {
 	forcast, err := getForcast(secrets.Location.Lat, secrets.Location.Long)
 	if err != nil {
-		return "", err
+		return darksky.ForecastResponse{}, err
 	}
-	return forcast.Currently.Summary, nil
+	return forcast, nil
 
 }
 
