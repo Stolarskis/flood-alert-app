@@ -31,5 +31,5 @@ variable "primary_cluster_zone" {
 variable "primary_cluster_initial_node_count" {
   type        = "string"
   description = "Initial node count for primary cluster."
-  default     = "1"
+  default     = "2"
 }

@@ -36,9 +36,17 @@ message getForcastResponse{
 string forcast = 1;
 }
 
+message updateForcastRequest{
+}
+
+message updateForcastResponse{
+string updatedForcast = 1;
+}
+
 service FloodAlertAppService {
 rpc checkAlerts (checkAlertsRequest) returns (checkAlertsResponse){}
 rpc testAlerts  (testAlertsRequest)   returns (testAlertsResponse){}
 rpc muteAlerts  (muteAlertRequest)  returns (muteAlertResponse){}
 rpc getForcast  (getForcastRequest) returns (getForcastResponse){}
+rpc updateForcast (updateForcastRequest) returns (updateForcastResponse){}
 }

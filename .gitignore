@@ -5,9 +5,10 @@ app-flood-app/app-flood-app
 
 
 # app-flood-build
-app-flood-build/terraform/projects/flood-alert/flood-alert.tfvars
-app-flood-build/terraform/projects/flood-alert/terraform.tfstate
-app-flood-build/terraform/projects/flood-alert/terraform.tfstate.backup
-app-flood-build/terraform/plans/flood-alert.tfplan
-app-flood-build/terraform/state/terraform.tfstate
+src/build/terraform/*
+#src/build/terraform/projects/flood-alert/flood-alert.tfvars
+#src/build/terraform/projects/flood-alert/terraform.tfstate
+#src/build/terraform/projects/flood-alert/terraform.tfstate.backup
+#src/build/terraform/plans/flood-alert.tfplan
+#src/build/terraform/state/terraform.tfstate
 
