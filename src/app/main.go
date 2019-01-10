@@ -73,6 +73,10 @@ func (s *server) GetForcast(ctx context.Context, r *pb.GetForcastRequest) (*pb.G
 	return &pb.GetForcastResponse{Forcast: forcastString}, nil
 }
 
-func (s *server) updateForcast(ctx context.Context, r *pb.UpdateForcastRequest) (*pb.UpdateForcastResponse, error) {
-
+func (s *server) UpdateForcast(ctx context.Context, r *pb.UpdateForcastRequest) (*pb.UpdateForcastResponse, error) {
+	err := updateForcast()
+	if err != nil {
+		return nil, errors.Wrap(err, "Failed to update forcast")
+	}
+	return &pb.UpdateForcastResponse{UpdatedForcast: ""}, nil
 }

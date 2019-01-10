@@ -5,7 +5,7 @@
   branch = "master"
   name = "github.com/Stolarskis/flood-alert-app"
   packages = ["src/api"]
-  revision = "48afb2912effa36c72f2c8e38af374089f20f110"
+  revision = "0366b870f2afe1cdbb22610de82da0a08a9fdde9"
 
 [[projects]]
   name = "github.com/dgrijalva/jwt-go"

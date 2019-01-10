@@ -62,6 +62,17 @@ func main() {
 				}
 			},
 		},
+		{
+			Name:    "updateForcast",
+			Aliases: []string{"u"},
+			Usage:   "Tells app to update its forcast",
+			Action: func(c *cli.Context) {
+				err := updateForcast(c)
+				if err != nil {
+					fmt.Println("Failed to get forcast", err)
+				}
+			},
+		},
 	}
 
 	err := app.Run(os.Args)
@@ -144,5 +155,20 @@ func getForcast(c *cli.Context) error {
 		return errors.Wrap(err, "Failed to get forcast")
 	}
 	fmt.Println(forcastResponse.Forcast)
+	return nil
+}
+
+func updateForcast(c *cli.Context) error {
+	client, err := pb.CreateClient()
+	if err != nil {
+		return err
+	}
+	ctx := context.Background()
+
+	forcastResponse, err := client.UpdateForcast(ctx, &pb.UpdateForcastRequest{})
+	if err != nil {
+		return errors.Wrap(err, "Failed to get forcast")
+	}
+	fmt.Println(forcastResponse.UpdatedForcast)
 	return nil
 }
