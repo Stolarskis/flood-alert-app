@@ -43,7 +43,7 @@ func main() {
 		{
 			Name:    "mute-alert",
 			Aliases: []string{"m"},
-			Usage:   "Mutes an alert based on priority. 1 2 or 3",
+			Usage:   "Mute/Unmute SMS or Email Alert. Syntax: ctl mute-alert {Type of Alert} {True/False} Example: ctl mute-alert sms true ",
 			Action: func(c *cli.Context) {
 				err := muteAlert(c)
 				if err != nil {
@@ -54,7 +54,7 @@ func main() {
 		{
 			Name:    "getForcast",
 			Aliases: []string{"g"},
-			Usage:   "Gets the current weather information",
+			Usage:   "Grabs info from last forcast",
 			Action: func(c *cli.Context) {
 				err := getForcast(c)
 				if err != nil {
@@ -104,7 +104,7 @@ func testAlerts() error {
 	return nil
 }
 
-//Mutes alerts, enter "Email" or "SMS"
+//Mutes alerts, enter "Email true" or "SMS true"
 func muteAlert(c *cli.Context) error {
 	client, err := pb.CreateClient()
 	if err != nil {

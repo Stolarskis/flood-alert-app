@@ -41,7 +41,7 @@ server:
     internalPort: 3001
     service:
         type: LoadBalancer
-        loadBalancerIP: "35.231.23.209"
+        loadBalancerIP: "35.211.247.88"
         clusterIP: "10.7.240.3"
     image:
         repository: gcr.io/flood-alert-app/server

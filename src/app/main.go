@@ -72,3 +72,7 @@ func (s *server) GetForcast(ctx context.Context, r *pb.GetForcastRequest) (*pb.G
 
 	return &pb.GetForcastResponse{Forcast: forcastString}, nil
 }
+
+func (s *server) updateForcast(ctx context.Context, r *pb.UpdateForcastRequest) (*pb.UpdateForcastResponse, error) {
+
+}
