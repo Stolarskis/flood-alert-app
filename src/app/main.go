@@ -78,5 +78,5 @@ func (s *server) UpdateForcast(ctx context.Context, r *pb.UpdateForcastRequest) 
 	if err != nil {
 		return nil, errors.Wrap(err, "Failed to update forcast")
 	}
-	return &pb.UpdateForcastResponse{UpdatedForcast: ""}, nil
+	return &pb.UpdateForcastResponse{UpdatedForcast: "Updated Forcast"}, nil
 }
